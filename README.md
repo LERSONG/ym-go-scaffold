@@ -1,0 +1,1 @@
+# ym-go-scaffold

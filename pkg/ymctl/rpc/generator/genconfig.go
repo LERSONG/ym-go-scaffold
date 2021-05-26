@@ -12,6 +12,30 @@ import (
 const configTemplate = `package config
 
 type Config struct {
+	Addr string
+	RegistryAddr string
+}
+
+func NewConfig(opts ...Option) *Config {
+	config := &Config{}
+	for _, opt := range opts {
+		opt(config)
+	}
+	return config
+}
+
+type Option func(c *Config)
+
+func Addr(addr string) Option {
+	return func(c *Config) {
+		c.Addr = addr
+	}
+}
+
+func RegistryAddr(registryAddr string) Option {
+	return func(c *Config) {
+		c.RegistryAddr = registryAddr
+	}
 }
 `
 

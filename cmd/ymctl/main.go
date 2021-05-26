@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	buildVersion = "0.0.1"
+	buildVersion = "0.1.0"
 	commands     = []cli.Command{
 		{
 			Name:  "rpc",

@@ -55,7 +55,8 @@ type (
 func mkdir(ctx *ctx.ProjectContext, proto parser.Proto) (DirContext, error) {
 	inner := make(map[string]Dir)
 	pkgDir := filepath.Join(ctx.WorkDir, "pkg")
-	cmdDir := filepath.Join(ctx.WorkDir, "cmd")
+	mainDir := strings.ToLower(proto.Service.Name)
+	cmdDir := filepath.Join(ctx.WorkDir, "cmd", mainDir)
 	configDir := filepath.Join(pkgDir, "conf")
 	logicDir := filepath.Join(pkgDir, "logic")
 	serverDir := filepath.Join(pkgDir, "server")

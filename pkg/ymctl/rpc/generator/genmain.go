@@ -13,30 +13,40 @@ import (
 const mainTemplate = `package main
 
 import (
-	"fmt"
-	"google.golang.org/grpc/grpclog"
+	"flag"
+	"github.com/LERSONG/beetle/log"
 	
 	{{.imports}}
 )
 
-const (
-	// Address gRPC服务地址
-	Address = "127.0.0.1:9999"
+const serviceName = "{{.serviceName}}"
+
+var (
+	serverAddress string
+	registryAddr string
 )
 
 func main() {
-	ctx := svc.NewServiceContext(config.Config{})
-	srv := server.New{{.serviceNew}}Server(ctx)
-	fmt.Printf("[INFO] listen rpc (%s)\n", Address)
-	err := srv.GrpcRun(Address)
-	if err != nil {
-		grpclog.Fatalln(err)
+	flag.StringVar(&serverAddress,"server_address",":18888","grpc server endpoint")
+	flag.StringVar(&registryAddr,"registry_address","10.200.100.200:42379","registry address")
+	flag.Parse()
+	log.InitLogger()
+	defer log.Sync()
+	config := config.NewConfig(
+		config.Addr(serverAddress),
+		config.RegistryAddr(registryAddr),
+		)
+	ctx := svc.NewServiceContext(*config)
+	srv := server.New{{.serviceNew}}Server(serviceName, ctx)
+
+	if err := srv.GrpcRun(); err != nil {
+		panic(err)
 	}
 }`
 
 func (g *DefaultGenerator) GenMain(ctx DirContext, proto parser.Proto, cfg *conf.Config) error {
-	serviceName := strings.ToLower(proto.Service.Name)
-	fileName := filepath.Join(ctx.GetMain().Filename, fmt.Sprintf("%v.go", serviceName))
+	//serviceName := strings.ToLower(proto.Service.Name)
+	fileName := filepath.Join(ctx.GetMain().Filename, "main.go")
 	imports := make([]string, 0)
 	svcImport := fmt.Sprintf(`"%v"`, ctx.GetSvc().Package)
 	remoteImport := fmt.Sprintf(`"%v"`, ctx.GetServer().Package)
@@ -49,7 +59,8 @@ func (g *DefaultGenerator) GenMain(ctx DirContext, proto parser.Proto, cfg *conf
 	}
 
 	return util.With("main").GoFmt(true).Parse(text).SaveTo(map[string]interface{}{
-		"imports":    strings.Join(imports, util.NL),
-		"serviceNew": stringx.From(proto.Service.Name).ToCamel(),
+		"imports":     strings.Join(imports, util.NL),
+		"serviceName": stringx.From(proto.Service.Name).ToSnake(),
+		"serviceNew":  stringx.From(proto.Service.Name).ToCamel(),
 	}, fileName, false)
 }

@@ -17,30 +17,72 @@ package server
 
 import (
 	"context"
+	"github.com/LERSONG/beetle/log"
+	"github.com/LERSONG/beetle/registry"
+	"github.com/LERSONG/beetle/registry/etcd"
 	"google.golang.org/grpc"
-	"net"
 
 	{{.imports}}
+
+	"net"
+	"os"
+	"os/signal"
+	"strings"
+	"syscall"
 )
 
 type {{.server}}Server struct {
+	Name string
+	Registry registry.Registry
 	svcCtx *svc.ServiceContext
 }
 
-func New{{.server}}Server(svcCtx *svc.ServiceContext) *{{.server}}Server {
+func New{{.server}}Server(name string, svcCtx *svc.ServiceContext) *{{.server}}Server {
 	return &{{.server}}Server{
+		Name: name,
 		svcCtx: svcCtx,
 	}
 }
 
-func (s *{{.server}}Server) GrpcRun(addr string) error {
+func (s *{{.server}}Server) GrpcRun() error {
+	addr := s.svcCtx.Config.Addr
 	listen, err := net.Listen("tcp", addr)
 	if err != nil {
 		return err
 	}
 	server := grpc.NewServer()
+	defer server.GracefulStop()
 	pb.Register{{.server}}Server(server,s)
-	return server.Serve(listen)
+	go server.Serve(listen)
+
+	log.Infof("listen rpc (%s)\n", addr)
+	if err = s.register(); err != nil{
+		return err
+	}
+	ch := make(chan os.Signal, 1)
+	signal.Notify(ch, syscall.SIGTERM, syscall.SIGINT, syscall.SIGKILL, syscall.SIGHUP, syscall.SIGQUIT)
+	sig := <-ch
+	s.Registry.Deregister()
+	if i, ok := sig.(syscall.Signal); ok {
+		os.Exit(int(i))
+	} else {
+		os.Exit(0)
+	}
+	return nil
+}
+
+func (s *{{.server}}Server) register() error {
+	registry, err := etcd.NewRegistry(
+		registry.ServiceName(s.Name),
+		registry.ServiceAddr(s.svcCtx.Config.Addr),
+		registry.Addrs(strings.Split(s.svcCtx.Config.RegistryAddr, ",")),
+	)
+	if err != nil {
+		return err
+	}
+	s.Registry = registry
+	err = s.Registry.Register()
+	return err
 }
 
 {{.funcs}}

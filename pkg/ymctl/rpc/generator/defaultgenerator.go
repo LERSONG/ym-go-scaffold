@@ -1,7 +1,7 @@
 package generator
 
 import (
-	"github.com/tal-tech/go-zero/tools/goctl/util/console"
+	"github.com/yametech/ym-go-scaffold/pkg/util/console"
 	"os/exec"
 )
 

@@ -2,12 +2,11 @@ package util
 
 import (
 	"fmt"
+	"github.com/yametech/ym-go-scaffold/pkg/vars"
 	"os"
 	"path"
 	"path/filepath"
 	"strings"
-
-	"github.com/tal-tech/go-zero/tools/goctl/vars"
 )
 
 const (

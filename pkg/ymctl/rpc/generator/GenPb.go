@@ -2,9 +2,9 @@ package generator
 
 import (
 	"bytes"
-	"github.com/LERSONG/ym-go-scaffold/pkg/conf"
-	"github.com/LERSONG/ym-go-scaffold/pkg/ymctl/rpc/execx"
-	"github.com/LERSONG/ym-go-scaffold/pkg/ymctl/rpc/parser"
+	"github.com/yametech/ym-go-scaffold/pkg/conf"
+	"github.com/yametech/ym-go-scaffold/pkg/ymctl/rpc/execx"
+	"github.com/yametech/ym-go-scaffold/pkg/ymctl/rpc/parser"
 	"path/filepath"
 	"strings"
 )

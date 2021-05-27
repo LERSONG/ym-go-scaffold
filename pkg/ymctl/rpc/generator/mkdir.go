@@ -4,10 +4,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/LERSONG/ym-go-scaffold/pkg/util"
-	"github.com/LERSONG/ym-go-scaffold/pkg/util/ctx"
-	"github.com/LERSONG/ym-go-scaffold/pkg/util/stringx"
-	"github.com/LERSONG/ym-go-scaffold/pkg/ymctl/rpc/parser"
+	"github.com/yametech/ym-go-scaffold/pkg/util"
+	"github.com/yametech/ym-go-scaffold/pkg/util/ctx"
+	"github.com/yametech/ym-go-scaffold/pkg/util/stringx"
+	"github.com/yametech/ym-go-scaffold/pkg/ymctl/rpc/parser"
 )
 
 const (

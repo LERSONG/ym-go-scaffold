@@ -3,8 +3,8 @@ package cli
 import (
 	"errors"
 	"fmt"
-	"github.com/LERSONG/ym-go-scaffold/pkg/ymctl/rpc/generator"
 	"github.com/urfave/cli"
+	"github.com/yametech/ym-go-scaffold/pkg/ymctl/rpc/generator"
 	"path/filepath"
 )
 

@@ -2,7 +2,7 @@ package ctx
 
 import (
 	"errors"
-	"github.com/LERSONG/ym-go-scaffold/pkg/ymctl/rpc/execx"
+	"github.com/yametech/ym-go-scaffold/pkg/ymctl/rpc/execx"
 	"path/filepath"
 )
 

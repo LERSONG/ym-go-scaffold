@@ -1,8 +1,8 @@
 package generator
 
 import (
-	"github.com/LERSONG/ym-go-scaffold/pkg/util"
-	"github.com/LERSONG/ym-go-scaffold/pkg/util/stringx"
+	"github.com/yametech/ym-go-scaffold/pkg/util"
+	"github.com/yametech/ym-go-scaffold/pkg/util/stringx"
 	"path/filepath"
 	"strings"
 )

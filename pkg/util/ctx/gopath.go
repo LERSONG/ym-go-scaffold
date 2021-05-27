@@ -2,7 +2,7 @@ package ctx
 
 import (
 	"errors"
-	"github.com/LERSONG/ym-go-scaffold/pkg/util"
+	"github.com/yametech/ym-go-scaffold/pkg/util"
 	"go/build"
 	"os"
 	"path/filepath"

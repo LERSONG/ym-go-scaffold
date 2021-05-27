@@ -4,12 +4,11 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"github.com/yametech/ym-go-scaffold/pkg/util"
+	"github.com/yametech/ym-go-scaffold/pkg/vars"
 	"os/exec"
 	"runtime"
 	"strings"
-
-	"github.com/tal-tech/go-zero/tools/goctl/util"
-	"github.com/tal-tech/go-zero/tools/goctl/vars"
 )
 
 // Run provides the execution of shell scripts in golang,

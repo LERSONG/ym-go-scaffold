@@ -1,8 +1,8 @@
 package generator
 
 import (
-	"github.com/LERSONG/ym-go-scaffold/pkg/conf"
-	"github.com/LERSONG/ym-go-scaffold/pkg/ymctl/rpc/parser"
+	"github.com/yametech/ym-go-scaffold/pkg/conf"
+	"github.com/yametech/ym-go-scaffold/pkg/ymctl/rpc/parser"
 )
 
 type Generator interface {

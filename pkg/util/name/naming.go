@@ -3,7 +3,7 @@
 package name
 
 import (
-	"github.com/LERSONG/ym-go-scaffold/pkg/util/stringx"
+	"github.com/yametech/ym-go-scaffold/pkg/util/stringx"
 	"strings"
 )
 

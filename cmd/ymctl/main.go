@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	rpc "github.com/LERSONG/ym-go-scaffold/pkg/ymctl/rpc/cli"
 	"github.com/urfave/cli"
+	rpc "github.com/yametech/ym-go-scaffold/pkg/ymctl/rpc/cli"
 	"os"
 	"runtime"
 )

@@ -1,4 +1,4 @@
-module github.com/LERSONG/ym-go-scaffold
+module github.com/yametech/ym-go-scaffold
 
 go 1.14
 

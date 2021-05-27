@@ -2,10 +2,10 @@ package generator
 
 import (
 	"fmt"
-	"github.com/LERSONG/ym-go-scaffold/pkg/conf"
-	"github.com/LERSONG/ym-go-scaffold/pkg/util"
-	"github.com/LERSONG/ym-go-scaffold/pkg/util/stringx"
-	"github.com/LERSONG/ym-go-scaffold/pkg/ymctl/rpc/parser"
+	"github.com/yametech/ym-go-scaffold/pkg/conf"
+	"github.com/yametech/ym-go-scaffold/pkg/util"
+	"github.com/yametech/ym-go-scaffold/pkg/util/stringx"
+	"github.com/yametech/ym-go-scaffold/pkg/ymctl/rpc/parser"
 	"path/filepath"
 	"strings"
 )
@@ -17,9 +17,9 @@ package server
 
 import (
 	"context"
-	"github.com/LERSONG/beetle/log"
-	"github.com/LERSONG/beetle/registry"
-	"github.com/LERSONG/beetle/registry/etcd"
+	"github.com/yametech/beetle/log"
+	"github.com/yametech/beetle/registry"
+	"github.com/yametech/beetle/registry/etcd"
 	"google.golang.org/grpc"
 
 	{{.imports}}

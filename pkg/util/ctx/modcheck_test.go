@@ -1,8 +1,8 @@
 package ctx
 
 import (
-	"github.com/LERSONG/ym-go-scaffold/pkg/util"
-	"github.com/LERSONG/ym-go-scaffold/pkg/ymctl/rpc/execx"
+	"github.com/yametech/ym-go-scaffold/pkg/util"
+	"github.com/yametech/ym-go-scaffold/pkg/ymctl/rpc/execx"
 	"go/build"
 	"os"
 	"path/filepath"

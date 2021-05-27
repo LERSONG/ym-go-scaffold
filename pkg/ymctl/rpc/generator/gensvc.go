@@ -2,9 +2,9 @@ package generator
 
 import (
 	"fmt"
-	"github.com/LERSONG/ym-go-scaffold/pkg/conf"
-	"github.com/LERSONG/ym-go-scaffold/pkg/util"
-	"github.com/LERSONG/ym-go-scaffold/pkg/ymctl/rpc/parser"
+	"github.com/yametech/ym-go-scaffold/pkg/conf"
+	"github.com/yametech/ym-go-scaffold/pkg/util"
+	"github.com/yametech/ym-go-scaffold/pkg/ymctl/rpc/parser"
 	"path/filepath"
 )
 

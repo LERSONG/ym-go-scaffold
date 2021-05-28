@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/urfave/cli"
+	"github.com/yametech/ym-go-scaffold/pkg/ymctl/api/gogen"
+	"github.com/yametech/ym-go-scaffold/pkg/ymctl/api/new"
 	rpc "github.com/yametech/ym-go-scaffold/pkg/ymctl/rpc/cli"
 	"os"
 	"runtime"
@@ -11,6 +13,38 @@ import (
 var (
 	buildVersion = "0.1.0"
 	commands     = []cli.Command{
+		{
+			Name:  "api",
+			Usage: "generate api related files",
+			Subcommands: []cli.Command{
+				{
+					Name:  "new",
+					Usage: "generate files for go micro service by default template",
+					Flags: []cli.Flag{
+						cli.StringFlag{
+							Name:  "o",
+							Usage: "the output dir",
+						},
+					},
+					Action: new.CreateServiceCommand,
+				},
+				{
+					Name:  "go",
+					Usage: "generate files for go micro service",
+					Flags: []cli.Flag{
+						cli.StringFlag{
+							Name:  "dir",
+							Usage: "the target dir",
+						},
+						cli.StringFlag{
+							Name:  "api",
+							Usage: "the api file",
+						},
+					},
+					Action: gogen.GoCommand,
+				},
+			},
+		},
 		{
 			Name:  "rpc",
 			Usage: "generate rpc code",

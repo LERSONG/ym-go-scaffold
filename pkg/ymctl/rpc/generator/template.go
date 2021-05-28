@@ -2,8 +2,7 @@ package generator
 
 import (
 	"fmt"
-	"github.com/yametech/ym-go-scaffold/pkg/util"
-
+	"github.com/tal-tech/go-zero/tools/goctl/util"
 	"github.com/urfave/cli"
 )
 

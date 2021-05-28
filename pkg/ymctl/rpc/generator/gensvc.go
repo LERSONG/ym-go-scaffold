@@ -2,9 +2,10 @@ package generator
 
 import (
 	"fmt"
+	"github.com/tal-tech/go-zero/tools/goctl/rpc/parser"
+	"github.com/tal-tech/go-zero/tools/goctl/util"
 	"github.com/yametech/ym-go-scaffold/pkg/conf"
-	"github.com/yametech/ym-go-scaffold/pkg/util"
-	"github.com/yametech/ym-go-scaffold/pkg/ymctl/rpc/parser"
+
 	"path/filepath"
 )
 

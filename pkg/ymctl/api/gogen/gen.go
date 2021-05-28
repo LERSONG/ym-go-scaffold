@@ -3,8 +3,8 @@ package gogen
 import (
 	"errors"
 	"github.com/tal-tech/go-zero/tools/goctl/api/parser"
+	"github.com/tal-tech/go-zero/tools/goctl/util"
 	"github.com/urfave/cli"
-	"github.com/yametech/ym-go-scaffold/pkg/util"
 )
 
 // GoCommand gen go project files from command line

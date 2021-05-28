@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/tal-tech/go-zero/tools/goctl/api/spec"
 	ctlutil "github.com/tal-tech/go-zero/tools/goctl/util"
-	"github.com/yametech/ym-go-scaffold/pkg/util/stringx"
+	"github.com/tal-tech/go-zero/tools/goctl/util/stringx"
 	"strings"
 )
 

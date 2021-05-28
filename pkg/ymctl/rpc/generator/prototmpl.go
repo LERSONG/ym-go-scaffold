@@ -1,8 +1,8 @@
 package generator
 
 import (
-	"github.com/yametech/ym-go-scaffold/pkg/util"
-	"github.com/yametech/ym-go-scaffold/pkg/util/stringx"
+	"github.com/tal-tech/go-zero/tools/goctl/util"
+	"github.com/tal-tech/go-zero/tools/goctl/util/stringx"
 	"path/filepath"
 	"strings"
 )

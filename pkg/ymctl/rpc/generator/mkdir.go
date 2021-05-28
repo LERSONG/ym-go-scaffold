@@ -1,13 +1,12 @@
 package generator
 
 import (
+	"github.com/tal-tech/go-zero/tools/goctl/rpc/parser"
+	"github.com/tal-tech/go-zero/tools/goctl/util"
+	"github.com/tal-tech/go-zero/tools/goctl/util/ctx"
+	"github.com/tal-tech/go-zero/tools/goctl/util/stringx"
 	"path/filepath"
 	"strings"
-
-	"github.com/yametech/ym-go-scaffold/pkg/util"
-	"github.com/yametech/ym-go-scaffold/pkg/util/ctx"
-	"github.com/yametech/ym-go-scaffold/pkg/util/stringx"
-	"github.com/yametech/ym-go-scaffold/pkg/ymctl/rpc/parser"
 )
 
 const (
